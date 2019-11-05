@@ -7,13 +7,14 @@ Normalement ca tourne !
 
 
 
-Si necessaire lancer depuis l'app dans le terminal:
+Si necessaire lancer depuis l'app  en local depuis le terminal:
 
-rails db:setup 
+rails db:setup
+
+rails s
 
 ___________________________
 
-heroku run rails db:migrate
-heroku run rails db:seed
+
 
 puis aller sur le site, et plus qu'à s'inscrire :)
