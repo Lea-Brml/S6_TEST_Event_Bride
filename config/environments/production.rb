@@ -1,7 +1,7 @@
 Rails.application.configure do
 
-  # UNE FOIS EN PRODUCTION METTRE LE NOM DE l'APP POUR LA REDIRECTION LORS DE LA RECUP DU MDP 
-  config.action_mailer.default_url_options = { :host => 'YOURAPPNAME.herokuapp.com' }
+  # UNE FOIS EN PRODUCTION METTRE LE NOM DE l'APP POUR LA REDIRECTION LORS DE LA RECUP DU MDP
+  config.action_mailer.default_url_options = { :host => 'event-bride-lea.herokuapp.com' }
 
   # Settings specified here will take precedence over those in config/application.rb.
 
