@@ -1,0 +1,17 @@
+
+
+<center>
+<div class="card" style="width:60%;">
+  <div class="card-header">
+    <p><strong>Titre de l'évènement : </strong><%= @event.title%></p>
+  </div>
+  <div class="card-body">
+    <blockquote class="blockquote mb-0">
+      <p><strong>Description : </strong><%= @event.description%></p>
+      <p><strong>Date : </strong><%= @event.start_date%></p>
+      <footer class="blockquote-footer"><strong>Durée : <%= @event.duration %> min. </strong> <% @event.duration %>
+      <cite title="Source Title"> Prix : <%= @event.price %> <strong>
+    </blockquote>
+  </div>
+</div>
+</center>
