@@ -37,7 +37,7 @@
         </ul>
         <form class="form-inline my-2 my-lg-0">
           <% if user_signed_in? %>
-          <a style ="background-color:white; color:#62DDB9; border-color:#62DDB9;" class="btn btn-outline-light my-2 my-sm-0" href="<%=static_pages_secret_path%>">Mon Profile</a>
+          <a style ="background-color:white; color:#62DDB9; border-color:#62DDB9;" class="btn btn-outline-light my-2 my-sm-0" href="<%=user_path(current_user)%>">Mon Profile</a>
           <%= link_to "Se déconnecter", destroy_user_session_path, method: :delete, class:"btn btn-outline-light my-2 my-sm-0", style:"background-color:white; color:#62DDB9; border-color:#62DDB9;" %>
           <% else %>
           <a style ="background-color:white; color:#62DDB9; border-color:#62DDB9;" class="btn btn-outline-light my-2 my-sm-0" href="<%=new_user_session_path%>">Se Connecter</a>
