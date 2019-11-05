@@ -1,5 +1,14 @@
 
-
+<% if @event.errors.any? %>
+  <div class="alert alert-danger" role="alert">
+    <p><strong>Nous n'avons pas réussi à créer votre profil pour la (ou les) raison(s) suivante(s) :</strong></p>
+    <ul>
+      <% @event.errors.full_messages.each do |message| %>
+        <li ><%= message %></li>
+      <% end %>
+    </ul>
+  </div>
+<% end %>
 
 
     <h1 style="text-align:center; margin-top:40px; color:white; font-size:48px;"> Vas-y. On est entre nous. Balance les bails !</h1>
@@ -13,27 +22,27 @@
     <%= form_tag url_for(action:'create'), method: "post" do %>
 
       <p style="color:white; font-size:22px;"><strong><%= label_tag 'Titre de l évènement' %></strong><br></p>
-      <%= text_field_tag 'title', @evenement.title  %>
+      <%= text_field_tag 'title', @event.title  %>
       <br /> <br />
 
       <p style="color:white; font-size:22px;"><strong><%= label_tag 'Lieux' %></strong><br></p>
-      <%= text_area_tag 'location', @evenement.location %>
+      <%= text_area_tag 'location', @event.location %>
       <br /> <br />
 
       <p style="color:white; font-size:22px;"><strong><%= label_tag 'Date de l évènement' %></strong><br></p>
-      <%= text_area_tag 'start_date', @evenement.start_date %>
+      <%= text_area_tag 'start_date', @event.start_date %>
       <br /> <br />
 
       <p style="color:white; font-size:22px;"><strong><%= label_tag 'Durée' %></strong><br></p>
-      <%= text_area_tag 'duration', @evenement.duration %>
+      <%= text_area_tag 'duration', @event.duration %>
       <br /> <br />
 
       <p style="color:white; font-size:22px;"><strong><%= label_tag 'Description' %></strong><br></p>
-      <%= text_area_tag 'description', @evenement.description %>
+      <%= text_area_tag 'description', @event.description %>
       <br /> <br />
 
       <p style="color:white; font-size:22px;"><strong><%= label_tag 'Prix' %></strong><br></p>
-      <%= text_area_tag 'price', @evenement.price %>
+      <%= text_area_tag 'price', @event.price %>
       <br /> <br />
 
 

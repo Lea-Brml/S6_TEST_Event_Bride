@@ -10,8 +10,8 @@ class EventsController < ApplicationController
 
   def new
 
-    @evenement = current_user
-    @evenement = Event.new
+    @event = current_user    #pour les alertes mais il y a un bugg inexpliquable, affaire a suivre
+    @event = Event.new
 
   end
 
@@ -23,12 +23,13 @@ class EventsController < ApplicationController
 
   def create
 
-    @evenement = Event.new(title: params[:title], location: params[:location], start_date: params[:start_date], duration: params[:duration], description: params[:description], price: params[:price], administrator_id: current_user.id )
+    @event = Event.new(title: params[:title], location: params[:location], start_date: params[:start_date], duration: params[:duration], description: params[:description], price: params[:price], administrator_id: current_user.id )
 
-    if @evenement.save
-      flash[:success] = ""
+    if @event.save
+      flash[:success] = "Ton Evenement a été créé !"
       redirect_to events_path
     else
+      flash.now[:danger] = "Ton evenement n'a pas été créé"
       render :new
     end
 
