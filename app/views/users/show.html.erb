@@ -1,6 +1,7 @@
-<div class="card-columns container mx-auto" >
+<% if current_user.id == @userr.find(params[:id]).id %>
 
-    <center>
+
+<center>
       <div class="card shadow" style="width: 20rem; padding-bottom:10px; border-color:#781D47;">
         <img class="card-img-top" src="http://www.feteetcompagnie.fr/media//slidefetes__013340400_1443_18052016.jpg" alt="Card image cap">
         <div class="card-body">
@@ -8,12 +9,12 @@
           <p class="card-text"> Nom : <%= @user.last_name  %></p>
           <p class="card-text"> Description : <%= @user.description  %></p>
           <p class="card-text"><small class="text-muted"> E-mail: <%= @user.email %></small></p>
+          <%= link_to "Modifier mes Infos", edit_user_registration_path, class:"btn btn-outline-light my-2 my-sm-0", style:"background-color:white; color:#62DDB9; border-color:#62DDB9;" %>
         </div>
       </div>
       <br>
-    </center>
+</center>
 
-</div>
 
     <div class="jumbotron">
       <h2 class="display-4">Voici tous les évènements que tu as créé !</h2>
@@ -40,3 +41,6 @@
 
       <%end %>
     </div>
+
+<%else %> Déso, tu ne peux pas avori accès à cette page.
+<%end %>

@@ -18,23 +18,27 @@ class Event < ApplicationRecord
   validates :price, numericality: {greater_tan: 0, less_than: 1001}
   validates :location, presence: true
 
-  #validate :multiple_of_5?
+  validate :multiple_of_5?
 
   validate :start_date_time
 
 
   def multiple_of_5?
 
+    if self.duration != nil
       errors.add(:duration, "La duree doit etre un multiple de 5 !") unless
       self.duration % 5 == 0
+    end
 
   end
 
 
   def start_date_time
 
+    if self.start_date != nil
       errors.add(:start_date, "Tu ne peux pas créer un évènement dans le passé") unless
       self.start_date > Time.now
+    end
 
   end
 

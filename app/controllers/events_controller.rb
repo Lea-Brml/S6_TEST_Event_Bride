@@ -1,6 +1,6 @@
 class EventsController < ApplicationController
 
-  before_action :authenticate_user, only: [:show]
+  before_action :authenticate_user!, only: [:show]
 
   def index
 
@@ -9,6 +9,9 @@ class EventsController < ApplicationController
   end
 
   def new
+
+    @evenement = current_user
+    @evenement = Event.new
 
   end
 
@@ -19,6 +22,15 @@ class EventsController < ApplicationController
   end
 
   def create
+
+    @evenement = Event.new(title: params[:title], location: params[:location], start_date: params[:start_date], duration: params[:duration], description: params[:description], price: params[:price], administrator_id: current_user.id )
+
+    if @evenement.save
+      flash[:success] = ""
+      redirect_to events_path
+    else
+      render :new
+    end
 
   end
 

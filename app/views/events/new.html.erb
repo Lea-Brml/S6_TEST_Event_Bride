@@ -1,1 +1,46 @@
-<p> zhzjehrkzjegrzehgrhzegrhjezrg </p>
+
+
+
+
+    <h1 style="text-align:center; margin-top:40px; color:white; font-size:48px;"> Vas-y. On est entre nous. Balance les bails !</h1>
+
+<div style="background-color:#62DDB9; opacity:70%; transform:skewY(-2deg); height:60em; margin-bottom:0px; ">
+  <div class="container text-center py-4" style="transform:skewY(2deg);">
+
+
+    <div style="text-align:center; margin-top:50px;">
+
+    <%= form_tag url_for(action:'create'), method: "post" do %>
+
+      <p style="color:white; font-size:22px;"><strong><%= label_tag 'Titre de l évènement' %></strong><br></p>
+      <%= text_field_tag 'title', @evenement.title  %>
+      <br /> <br />
+
+      <p style="color:white; font-size:22px;"><strong><%= label_tag 'Lieux' %></strong><br></p>
+      <%= text_area_tag 'location', @evenement.location %>
+      <br /> <br />
+
+      <p style="color:white; font-size:22px;"><strong><%= label_tag 'Date de l évènement' %></strong><br></p>
+      <%= text_area_tag 'start_date', @evenement.start_date %>
+      <br /> <br />
+
+      <p style="color:white; font-size:22px;"><strong><%= label_tag 'Durée' %></strong><br></p>
+      <%= text_area_tag 'duration', @evenement.duration %>
+      <br /> <br />
+
+      <p style="color:white; font-size:22px;"><strong><%= label_tag 'Description' %></strong><br></p>
+      <%= text_area_tag 'description', @evenement.description %>
+      <br /> <br />
+
+      <p style="color:white; font-size:22px;"><strong><%= label_tag 'Prix' %></strong><br></p>
+      <%= text_area_tag 'price', @evenement.price %>
+      <br /> <br />
+
+
+      <%= submit_tag "Créer mon Evenement de la mort qui tue" %>
+
+    <% end %>
+
+    </div>
+  </div>
+</div>

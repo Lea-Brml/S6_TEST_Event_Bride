@@ -1,5 +1,7 @@
 
 
+
+
 <center>
 <div class="card" style="width:60%;">
   <div class="card-header">
@@ -11,6 +13,9 @@
       <p><strong>Date : </strong><%= @event.start_date%></p>
       <footer class="blockquote-footer"><strong>Durée : <%= @event.duration %> min. </strong> <% @event.duration %>
       <cite title="Source Title"> Prix : <%= @event.price %> <strong>
+      <p> </p>
+      <p><strong>Créateur de l'évènement : </strong><%= @event.administrator.email%></p>
+      <p><strong>Nombre de participants : </strong><%= @event.administrator.email%></p>
     </blockquote>
   </div>
 </div>
