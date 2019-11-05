@@ -1,4 +1,4 @@
-<div class="card-columns container mx-auto">
+<div class="card-columns container mx-auto" >
 
     <center>
       <div class="card shadow" style="width: 20rem; padding-bottom:10px; border-color:#781D47;">
@@ -14,3 +14,29 @@
     </center>
 
 </div>
+
+    <div class="jumbotron">
+      <h2 class="display-4">Voici tous les évènements que tu as créé !</h2>
+    </div>
+
+
+    <div class="card-columns container mx-auto">
+
+    <% @event.each do |t| %>
+
+        <center>
+          <div class="card shadow" style="width: 20rem; padding-bottom:10px; border-color:#781D47;">
+            <img class="card-img-top" src="http://www.feteetcompagnie.fr/media//slidefetes__013340400_1443_18052016.jpg" alt="Card image cap">
+            <div class="card-body">
+              <a style="color: #781D47; " class="card-title" href="http://localhost:3000/events/<%=t.id%>"> <%=t.title %></a>
+              <p class="card-text"> Description : <%= t.description  %></p>
+              <p class="card-text"> Prix : <%= t.price  %></p>
+              <p class="card-text"><small class="text-muted"> Date de l'évènement: <%= t.start_date %></small></p>
+              <p class="card-text"><small class="text-muted"> Durée de l'évènement: <%= t.duration %></small></p>
+            </div>
+          </div>
+          <br>
+        </center>
+
+      <%end %>
+    </div>
