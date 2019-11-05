@@ -1,3 +1,25 @@
+<style>
+
+.jumbotron {
+  height: 440px;
+  background-image: url("https://cdn.pixabay.com/photo/2015/07/10/17/53/cheers-839865_960_720.jpg");
+  background-repeat: no-repeat;
+  background-size:cover;
+  background-attachment:fixed;
+}
+
+</style>
+
+
+<div class="jumbotron jumbotron-fluid" >
+  <div class="container">
+    <h1 style="margin-top:100px; font-size:78px; color:white;" class="display-4"><strong>Hello !</strong> <%= @user.first_name %></h1>
+    <p style="font-size:48px; color:white;" class="lead">Voici ton profil perso à toi. Oui, à toi et rien qu'à toi !.</p>
+  </div>
+</div>
+
+
+
 <% if current_user.id == @userr.find(params[:id]).id %>
 
 
@@ -9,15 +31,15 @@
           <p class="card-text"> Nom : <%= @user.last_name  %></p>
           <p class="card-text"> Description : <%= @user.description  %></p>
           <p class="card-text"><small class="text-muted"> E-mail: <%= @user.email %></small></p>
-          <%= link_to "Modifier mes Infos", edit_user_registration_path, class:"btn btn-outline-light my-2 my-sm-0", style:"background-color:white; color:#62DDB9; border-color:#62DDB9;" %>
+          <%= link_to "Modifier mes Infos", edit_user_registration_path, class:"btn btn-outline-light my-2 my-sm-0", style:"background-color:white; color:#ED3833; border-color:#ED3833;" %>
         </div>
       </div>
       <br>
 </center>
 
 
-    <div class="jumbotron">
-      <h2 class="display-4">Voici tous les évènements que tu as créé !</h2>
+    <div class="jumbotron" style="height:280px;">
+      <h2 class="display-4" style="color:white; font-size:60px; padding-left:120px; padding-top:40px;">Voici la liste des évènements que tu as créé !</h2>
     </div>
 
 

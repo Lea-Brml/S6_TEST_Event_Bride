@@ -1,5 +1,21 @@
+<style>
+
+.jumbotron {
+  height: 360px;
+  background-image: url("https://cdn.pixabay.com/photo/2015/03/26/10/22/band-691224_960_720.jpg");
+  background-repeat: no-repeat;
+  background-size:cover;
+  background-attachment:fixed;
+}
+
+</style>
 
 
+<div class="jumbotron jumbotron-fluid" >
+  <div class="container">
+    <h1 style="margin-top:100px; font-size:38px; color:white;" class="display-4"><strong>Tu trouveras ci-dessous toutes les infos qui t'intéresse pour l'évent </strong> <%= @event.title%></h1>
+  </div>
+</div>
 
 
 <center>
@@ -13,10 +29,10 @@
       <p><strong>Date de début : </strong><%= @event.start_date%></p>
       <p><strong>Date de fin : </strong><%= @event.start_date + @event.duration*60%></p>
       <footer class="blockquote-footer"><strong>Durée : <%= @event.duration %> min. </strong> <% @event.duration %>
-      <cite title="Source Title"> Prix : <%= @event.price %> <strong>
+      <cite title="Source Title"> Prix : <%= @event.price %> €<strong>
       <p> </p>
       <p><strong>Créateur de l'évènement : </strong><%= @event.administrator.email%></p>
-      <p><strong>Nombre de participants : </strong><%= @event.administrator.email%></p>
+      <p><strong>Nombre de participants : </strong><%=@attendance.where(user_id: @event.id).count%></p>
     </blockquote>
   </div>
 </div>

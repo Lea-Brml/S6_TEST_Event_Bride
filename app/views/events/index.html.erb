@@ -1,8 +1,25 @@
 
-<div class="jumbotron">
-  <h1 class="display-4">Bienvenu sur Event Bride !</h1>
-  <p class="lead">Tu pourras trouver ici tous les évènements qui auront lieu dans ta région. </p>
+
+<div  class="jumbotron jumbotron-fluid" style="height:32em;">
+  <div class="container">
+    <!-- <h1 class="display-4" style="text-align:center; padding-top:80px; color:white;">Hello les MOUSS'</h1> -->
+    <h1 class="ml11" style="text-align:center; color:white; font-size:68px; padding-top:80px;">
+      <span class="text-wrapper">
+        <span class="line line1"></span>
+        <span class="letters">Bienvenue sur Event Bride !</span>
+      </span>
+    </h1>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/2.0.2/anime.min.js"></script>
+
+    <p style="text-align:center; font-size:28px; padding-top:40px; padding-bottom:40px; color:white;" class="lead"><strong>Tu pourras trouver ici tous les évènements qui auront lieu dans ta région.</strong></p>
+
+  </div>
 </div>
+
+
+
+<h2 class="py-4"style="padding-left:120px;"> Voici tous la liste des prochains évènements à venir </h2>
 
 <div class="card-columns container mx-auto">
   <% @event.each do |t| %>
@@ -14,8 +31,12 @@
           <a style="color: #781D47; " class="card-title" href="<%=event_path(t)%>"> <%=t.title %></a>
           <p class="card-text"> Description : <%= t.description  %></p>
           <p class="card-text"> Prix : <%= t.price  %></p>
-          <p class="card-text"><small class="text-muted"> Date de l'évènement: <%= t.start_date %></small></p>
-          <p class="card-text"><small class="text-muted"> Durée de l'évènement: <%= t.duration %></small></p>
+          <span class="card-text"><small class="text-muted"> Date de l'évènement: <%= t.start_date %></small></span>
+          <span class="card-text"><small class="text-muted"> Durée de l'évènement: <%= t.duration %> min.</small></span>
+          <p></p>
+          <% if user_signed_in? %>
+          <a style ="background-color:white; color:#ED3833; border-color:#ED3833;" class="btn btn-outline-light my-2 my-sm-0" href="<%=event_path(t)%>">Voir l'Event</a>
+          <%end%>
         </div>
       </div>
       <br>
@@ -23,3 +44,89 @@
 
   <%end %>
 </div>
+
+
+<style>
+
+.jumbotron {
+   background-image: url("https://cdn.pixabay.com/photo/2015/09/18/11/38/audience-945449_960_720.jpg");
+    background-repeat: no-repeat;
+    background-size:cover;
+    background-attachment:fixed;
+    height:30em;
+  }
+
+
+    .ml11 {
+  font-weight: 700;
+  font-size: 3.5em;
+}
+
+.ml11 .text-wrapper {
+  position: relative;
+  display: inline-block;
+  padding-top: 0.1em;
+  padding-right: 0.05em;
+  padding-bottom: 0.15em;
+}
+
+.ml11 .line {
+  opacity: 0;
+  position: absolute;
+  left: 0;
+  height: 100%;
+  width: 3px;
+  background-color: #fff;
+  transform-origin: 0 50%;
+}
+
+.ml11 .line1 {
+  top: 0;
+  left: 0;
+}
+
+.ml11 .letter {
+  display: inline-block;
+  line-height: 1em;
+
+
+</style>
+
+
+
+<script type="text/javascript">
+
+  // Wrap every letter in a span
+  var textWrapper = document.querySelector('.ml11 .letters');
+  textWrapper.innerHTML = textWrapper.textContent.replace(/([^\x00-\x80]|\w)/g, "<span class='letter'>$&</span>");
+
+  anime.timeline({loop: true})
+    .add({
+      targets: '.ml11 .line',
+      scaleY: [0,1],
+      opacity: [0.5,1],
+      easing: "easeOutExpo",
+      duration: 700
+    })
+    .add({
+      targets: '.ml11 .line',
+      translateX: [0, document.querySelector('.ml11 .letters').getBoundingClientRect().width + 10],
+      easing: "easeOutExpo",
+      duration: 700,
+      delay: 100
+    }).add({
+      targets: '.ml11 .letter',
+      opacity: [0,1],
+      easing: "easeOutExpo",
+      duration: 600,
+      offset: '-=775',
+      delay: (el, i) => 34 * (i+1)
+    }).add({
+      targets: '.ml11',
+      opacity: 0,
+      duration: 1000,
+      easing: "easeOutExpo",
+      delay: 1000
+    });
+
+</script>
