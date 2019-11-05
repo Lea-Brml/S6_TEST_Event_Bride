@@ -1,24 +1,7 @@
-# README
+bonjour !
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Voici le lien de mon site heroku : https://event-bride-lea.herokuapp.com/
 
-Things you may want to cover:
+Mais !!!!! J'ai été ban de Sindgrig, car se site est vachement nul et ne tolère que très peu d'envois de mail... Donc pas possible de créer une session à cause de ca. Ca m'a vener. Donc pour plus de simplicité passez en local !
 
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+Désolé pour tous ces "dons" ;) 
