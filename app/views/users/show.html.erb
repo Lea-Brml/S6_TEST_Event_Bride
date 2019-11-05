@@ -54,8 +54,9 @@
               <a style="color: #781D47; " class="card-title" href="<%=event_path(t)%>"> <%=t.title %></a>
               <p class="card-text"> Description : <%= t.description  %></p>
               <p class="card-text"> Prix : <%= t.price  %></p>
-              <p class="card-text"><small class="text-muted"> Date de l'évènement: <%= t.start_date %></small></p>
-              <p class="card-text"><small class="text-muted"> Durée de l'évènement: <%= t.duration %></small></p>
+              <span class="card-text"><small class="text-muted"> Date de l'évènement: <%= t.start_date %></small></span><br>
+              <span class="card-text"><small class="text-muted"> Durée de l'évènement: <%= t.duration %></small></span><br>
+              <span class="card-text"><small class="text-muted"> Lieu : <%= t.location %></small></span><br><p></p>
               <a  href="<%=edit_event_path(t)%>" class="btn btn-outline-primary" > Modifier l'Event </a>
               <a href="<%=event_path(t)%>" class="btn btn-outline-danger" data-confirm="Êtes vous sûr de vouloir supprimer ce gossip?" data-method="DELETE">Supprimer</a>
             </div>
