@@ -10,46 +10,61 @@
   </div>
 <% end %>
 
+<style >
+body {
+  background-image: url("https://cdn.pixabay.com/photo/2016/06/02/02/33/triangles-1430105_960_720.png");
+}
 
-    <h1 style="text-align:center; margin-top:60px; margin-bottom:60px; color:#ED3833; font-size:38px;"> Tu peux y aller ! Balance les infos concernant ton Event ! !</h1>
-
-<div style="background-color:#ED3833; opacity:70%; transform:skewY(-2deg); height:60em; margin-bottom:0px; ">
-  <div class="container text-center py-4" style="transform:skewY(2deg);">
-
-
-    <div style="text-align:center; margin-top:50px;">
-
-    <%= form_tag url_for(action:'create'), method: "post" do %>
-
-      <p style="color:white; font-size:22px;"><strong><%= label_tag 'Titre de l évènement' %></strong><br></p>
-      <%= text_field_tag 'title', @event.title  %>
-      <br /> <br />
-
-      <p style="color:white; font-size:22px;"><strong><%= label_tag 'Lieux' %></strong><br></p>
-      <%= text_area_tag 'location', @event.location %>
-      <br /> <br />
-
-      <p style="color:white; font-size:22px;"><strong><%= label_tag 'Date de l évènement' %></strong><br></p>
-      <%= text_area_tag 'start_date', @event.start_date %>
-      <br /> <br />
-
-      <p style="color:white; font-size:22px;"><strong><%= label_tag 'Durée' %></strong><br></p>
-      <%= text_area_tag 'duration', @event.duration %>
-      <br /> <br />
-
-      <p style="color:white; font-size:22px;"><strong><%= label_tag 'Description' %></strong><br></p>
-      <%= text_area_tag 'description', @event.description %>
-      <br /> <br />
-
-      <p style="color:white; font-size:22px;"><strong><%= label_tag 'Prix' %></strong><br></p>
-      <%= text_area_tag 'price', @event.price %>
-      <br /> <br />
+</style>
 
 
-      <%= submit_tag "Créer mon Evenement de la mort qui tue" %>
+    <div class="container bg-white" style="margin-top:60px;">
+        </br>
+        <h1 class="display-4  mt-5 d-flex justify-content-center" style="color:#C73C3F;">Balance les infos concernant ton Event !</h1>
+        <div class="container d-flex justify-content-center ">
+          <div class="col-md-8 order-md-1">
 
-    <% end %>
 
+            <%= form_tag url_for(action: 'create'), method: "post" do %>
+
+                <input type="hidden" name="authenticity_token" value= <%= form_authenticity_token %> >
+                <br />
+
+                <div class="mb-3">
+                  <%= label_tag "Titre de l'évènement" %> </br>
+                  <%= text_field_tag 'title', "", class: "form-control", placeholder: "Titre" %>
+                </div>
+
+                <div class="row">
+                  <div class="col">
+                    <%= label_tag 'La Date'%> </br>
+                    <%= text_field_tag 'start_date', "", class: "form-control", placeholder: "2020-01-20 00:00:00"  %>
+                  </div>
+                  <br />
+                  <div class="col">
+                    <%= label_tag 'La durée ' %><span class="text-muted"> (en minutes svp)</span> </br>
+                    <%= text_field_tag 'duration', "", class: "form-control"%>
+                  </div>
+                  <div class="col">
+                    <%= label_tag 'Le prix ' %> <span class="text-muted"> (en €)</span> </br>
+                    <%= text_field_tag 'price', "", class: "form-control"%>
+                  </div>
+                </div>
+                </br>
+                <div class="mb-3">
+                  <%= label_tag "Le lieu" %> </br>
+                  <%= text_field_tag 'location', "", class: "form-control", placeholder: "Montpellier"%>
+                </div>
+
+                <div class="mb-3">
+                  <%= label_tag "Description de l'évènement " %><span class="text-muted"> (20 caractères min)</span> </br>
+                  <%= text_area_tag 'description', "", class: "form-control"%>
+                </div>
+
+                <%= submit_tag "Valider", class: 'btn btn-primary btn-lg btn-block'  %>
+                <br>
+            <% end %>
+
+          </div>
+        </div>
     </div>
-  </div>
-</div>

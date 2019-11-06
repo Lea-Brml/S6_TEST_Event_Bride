@@ -26,14 +26,15 @@
 
     <center>
       <div class="card shadow" style="width: 20rem; padding-bottom:10px; border-color:#781D47;">
-        <img class="card-img-top" src="http://www.feteetcompagnie.fr/media//slidefetes__013340400_1443_18052016.jpg" alt="Card image cap">
+        <%= image_tag("#{["1.jpg","2.jpg","3.jpg","4.jpg","5.jpg","6.jpg","7.jpg","8.jpg"].sample}", class: "card-img-top", size: "100x200") %>
+        <!-- <img class="card-img-top" src="http://www.feteetcompagnie.fr/media//slidefetes__013340400_1443_18052016.jpg" alt="Card image cap"> -->
         <div class="card-body">
           <a style="color: #781D47; " class="card-title" href="<%=event_path(t)%>"> <%=t.title %></a>
           <p class="card-text"> Description : <%= t.description  %></p>
           <p class="card-text"> Prix : <%= t.price  %> €</p>
-          <span class="card-text"><small class="text-muted"> Lieu: <%= t.location %></small></span><br>
+          <span class="card-text"><small class="text-muted"> Lieu : <%= t.location %></small></span><br>
           <span class="card-text"><small class="text-muted"> Date : <%= t.start_date %></small></span><br>
-          <span class="card-text"><small class="text-muted"> Durée de l'évènement: <%= t.duration %> min.</small></span>
+          <span class="card-text"><small class="text-muted"> Durée de l'évènement : <%= t.duration %> min.</small></span>
           <p></p>
           <% if user_signed_in? %>
           <a style ="background-color:white; color:#ED3833; border-color:#ED3833;" class="btn btn-outline-light my-2 my-sm-0" href="<%=event_path(t)%>">Voir l'Event</a>
