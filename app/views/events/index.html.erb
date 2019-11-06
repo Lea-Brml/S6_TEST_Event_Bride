@@ -37,6 +37,9 @@
           <span class="card-text"><small class="text-muted"> Durée de l'évènement : <%= t.duration %> min.</small></span>
           <p></p>
           <% if user_signed_in? %>
+          <button type="button" class="btn btn-outline-info">
+            participants <span class="badge badge-light"><%= t.attendances.size %> </span>
+          </button>
           <a style ="background-color:white; color:#ED3833; border-color:#ED3833;" class="btn btn-outline-light my-2 my-sm-0" href="<%=event_path(t)%>">Voir l'Event</a>
           <%end%>
         </div>
