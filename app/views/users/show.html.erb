@@ -24,14 +24,24 @@
 
 
 <center>
+
       <div class="card shadow" style="width: 20rem; padding-bottom:10px; border-color:#781D47;">
-        <img class="card-img-top" src="http://www.feteetcompagnie.fr/media//slidefetes__013340400_1443_18052016.jpg" alt="Card image cap">
+        <%if @user.avatar.attached?%>
+          <%= image_tag @user.avatar, alt: 'avatar', class:"rounded py-2", style:"width:300px;" %>
+        <%end%>
         <div class="card-body">
           <p class="card-text"> Prénom: <%= @user.first_name  %></p>
           <p class="card-text"> Nom : <%= @user.last_name  %></p>
           <p class="card-text"> Description : <%= @user.description  %></p>
           <p class="card-text"><small class="text-muted"> E-mail: <%= @user.email %></small></p>
           <%= link_to "Modifier mes Infos", edit_user_registration_path, class:"btn btn-outline-light my-2 my-sm-0", style:"background-color:white; color:#ED3833; border-color:#ED3833;" %>
+          <p style="padding-top:20px;"></p>
+          <div style="text-align:left; opacity:50%;">
+          <%= form_tag user_avatars_path(@user), multipart: true do %>
+            <%= file_field_tag :avatar %>
+            <%= submit_tag "Changer d'Avatar", class:"btn btn-outline-info ", style:"margin-top:12px;" %>
+          <% end %>
+          </div>
         </div>
       </div>
       <br>

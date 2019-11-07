@@ -1,4 +1,13 @@
 
+<style >
+
+body {
+  background-image: url("https://cdn.pixabay.com/photo/2016/06/02/02/33/triangles-1430105_960_720.png");
+  }
+
+</style>
+
+
 <% if @event.errors.any? %>
   <div class="alert alert-danger" role="alert">
     <p><strong>Nous n'avons pas réussi à créer votre profil pour la (ou les) raison(s) suivante(s) :</strong></p>
@@ -10,13 +19,6 @@
   </div>
 <% end %>
 
-<style >
-body {
-  background-image: url("https://cdn.pixabay.com/photo/2016/06/02/02/33/triangles-1430105_960_720.png");
-}
-
-</style>
-
 
     <div class="container bg-white" style="margin-top:60px;">
         </br>
@@ -26,7 +28,6 @@ body {
 
 
             <%= form_for @event do |f| %>
-
 
 
                 <div class="mb-3">

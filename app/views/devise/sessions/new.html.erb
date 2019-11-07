@@ -1,4 +1,10 @@
-<h2></h2>
+
+<style >
+body {
+  background-image: url("https://cdn.pixabay.com/photo/2016/06/02/02/33/triangles-1430105_960_720.png");
+}
+
+</style>
 
 <div class="container" style="padding-top:160px;">
   <div class="row">
@@ -7,6 +13,7 @@
       <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
       <h1 class="h3 mb-3 font-weight-normal text-center">Sign up</h1>
       <center>
+
         <div class="field">
           <%= f.label :email %><br />
           <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
