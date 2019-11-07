@@ -11,6 +11,7 @@
 </style>
 
 
+
 <div class="jumbotron jumbotron-fluid" >
   <div class="container">
     <h1 style="margin-top:100px; font-size:38px; color:white;" class="display-4"><strong>Tu trouveras ci-dessous toutes les infos qui t'intéresse pour l'évent </strong> <%= @event.title%></h1>
@@ -19,10 +20,18 @@
 
 
 <center>
-<div class="card" style="width:60%;">
-  <div class="card-header">
-    <p><strong>Titre de l'évènement : </strong><%= @event.title%></p>
-  </div>
+
+  <%if @event.avatar.attached?%>
+  <%= image_tag @event.avatar, class:"card-img-top rounded-pill", style:"width:600px;"%>
+  <%end%>
+
+
+  <h2 style="padding-top:40px; padding-bottom:40px; font-size:40px;"><strong><%= @event.title%></strong></h2>
+
+
+
+<div class="card" style="width:40%;">
+
   <div class="card-body">
     <blockquote class="blockquote mb-0">
       <p><strong>Description : </strong><%= @event.description%></p>

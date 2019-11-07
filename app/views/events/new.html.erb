@@ -25,43 +25,47 @@ body {
           <div class="col-md-8 order-md-1">
 
 
-            <%= form_tag url_for(action: 'create'), method: "post" do %>
+            <%= form_for @event do |f| %>
 
-                <input type="hidden" name="authenticity_token" value= <%= form_authenticity_token %> >
-                <br />
+
 
                 <div class="mb-3">
-                  <%= label_tag "Titre de l'évènement" %> </br>
-                  <%= text_field_tag 'title', "", class: "form-control", placeholder: "Titre" %>
+                  <%= f.label "Titre de l'évènement" %> </br>
+                  <%= f.text_field :title,  class: "form-control", placeholder: "Titre" %>
                 </div>
 
                 <div class="row">
                   <div class="col">
-                    <%= label_tag 'La Date'%> </br>
-                    <%= text_field_tag 'start_date', "", class: "form-control", placeholder: "2020-01-20 00:00:00"  %>
+                    <%= f.label 'La Date'%> </br>
+                    <%= f.text_field :start_date,  class: "form-control", placeholder: "2019-01-01 00:00:00"  %>
                   </div>
                   <br />
                   <div class="col">
-                    <%= label_tag 'La durée ' %><span class="text-muted"> (en minutes svp)</span> </br>
-                    <%= text_field_tag 'duration', "", class: "form-control"%>
+                    <%= f.label 'La durée ' %><span class="text-muted"> (en minutes svp)</span> </br>
+                    <%= f.text_field :duration,  class: "form-control"%>
                   </div>
                   <div class="col">
-                    <%= label_tag 'Le prix ' %> <span class="text-muted"> (en €)</span> </br>
-                    <%= text_field_tag 'price', "", class: "form-control"%>
+                    <%= f.label 'Le prix ' %> <span class="text-muted"> (en €)</span> </br>
+                    <%= f.text_field :price, class: "form-control"%>
                   </div>
                 </div>
                 </br>
                 <div class="mb-3">
-                  <%= label_tag "Le lieu" %> </br>
-                  <%= text_field_tag 'location', "", class: "form-control", placeholder: "Montpellier"%>
+                  <%= f.label "Le lieu" %> </br>
+                  <%= f.text_field :location,  class: "form-control", placeholder: "Montpellier"%>
                 </div>
 
                 <div class="mb-3">
-                  <%= label_tag "Description de l'évènement " %><span class="text-muted"> (20 caractères min)</span> </br>
-                  <%= text_area_tag 'description', "", class: "form-control"%>
+                  <%= f.label "Description de l'évènement " %><span class="text-muted"> (20 caractères min)</span> </br>
+                  <%= f.text_field :description,  class: "form-control"%>
                 </div>
 
-                <%= submit_tag "Valider", class: 'btn btn-primary btn-lg btn-block'  %>
+                <div class="form-group">
+                 <%= f.label 'Image' %>
+                 <%= f.file_field :avatar %>
+               </div>
+
+                <%= f.submit "Valider", class: 'btn btn-primary btn-lg btn-block'  %>
                 <br>
             <% end %>
 
