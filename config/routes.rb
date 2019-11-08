@@ -5,9 +5,12 @@ Rails.application.routes.draw do
   devise_for :users
 
   resources :events
+
+  post "events/:id/attendances", to: "attendances#new", as: "inscription"
+
   resources :users, only: [:show] do
     resources :avatars, only: [:create]
-  end 
+  end
 
 
   get 'static_pages/index', to: 'static_pages#index'
