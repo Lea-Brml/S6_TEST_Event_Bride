@@ -30,13 +30,20 @@
 
   <% if current_user.id == @event.administrator_id %>
 
-    <a href="<%= mon_event_path %>"class="btn btn-outline-info", style="text-align:right; margin-bottom:20px;">
-      Mon Espace Evenement
+    <a href="<%= mon_event_path %>"class="btn btn-outline-info", style="text-align:right; margin-bottom:10px;">
+      Espace Evenement
     </a>
+    <a href="<%= edit_event_path %>"class="btn btn-outline-info", style="text-align:right; margin-bottom:10px;">
+      Moddifer l'Event
+    </a><br>
+    <a href="<%=event_path%>" class="btn btn-outline-danger" data-confirm="Êtes vous sûr de vouloir supprimer ce gossip?" data-method="DELETE">Supprimer
+      Supprimer l'Event
+    </a>
+
   <%end%>
 
 
-<div class="card" style="width:60%; margin-bottom:60px;">
+<div class="card" style="width:60%; margin-bottom:60px; margin-top:20px;">
 
   <div class="card-body">
     <blockquote class="blockquote mb-0">
@@ -50,6 +57,7 @@
         <h2> <strong>Où ?  </strong> </h2>
         <p><%= @event.location%></p>
 
+        <% if current_user.id != @event.administrator_id && current_user.id != Attendance.find_by(user_id: current_user.id) %>
           <%= form_tag inscription_path do %>
             <article>
               <% if flash[:error].present? %>
@@ -69,6 +77,7 @@
                     data-currency="eur"
                     data-locale="auto"></script>
           <% end %>
+        <%end%>
 
         <p> </p>
       </div>
