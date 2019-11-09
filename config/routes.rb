@@ -6,7 +6,12 @@ Rails.application.routes.draw do
 
   resources :events
 
+  resources :attendances, only: [:index]
+
   post "events/:id/attendances", to: "attendances#new", as: "inscription"
+
+  get "events/:id/attendances/index", to: "attendances#index", as: "mon_event"
+
 
   resources :users, only: [:show] do
     resources :avatars, only: [:create]

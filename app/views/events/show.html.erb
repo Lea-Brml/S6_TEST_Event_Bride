@@ -26,8 +26,14 @@
   <%end%>
 
 
-  <h2 style="padding-top:40px; padding-bottom:40px; font-size:40px;"><strong><%= @event.title%></strong></h2>
+  <h2 style="padding-top:40px;  font-size:40px;"><strong><%= @event.title%></strong></h2>
 
+  <% if current_user.id == @event.administrator_id %>
+
+    <a href="<%= mon_event_path %>"class="btn btn-outline-info", style="text-align:right; margin-bottom:20px;">
+      Mon Espace Evenement
+    </a>
+  <%end%>
 
 
 <div class="card" style="width:60%; margin-bottom:60px;">

@@ -1,6 +1,10 @@
 class AttendancesController < ApplicationController
 
   def index
+
+    @event = Event.find(params[:id])
+    @attendance = Attendance.where(event:@event.id)
+
   end
 
   def show
