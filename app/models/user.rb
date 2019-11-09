@@ -13,6 +13,10 @@ class User < ApplicationRecord
   validates :email, presence: true
   validates :email, uniqueness: true
 
+  validates :first_name, presence: true
+
+  validates :last_name, presence: true
+
   has_many :administrator_events, foreign_key: 'administrator_id', class_name: "Event", dependent: :destroy
 
   #envoyer les mails à la création de l'user
